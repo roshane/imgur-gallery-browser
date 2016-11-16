@@ -4,10 +4,12 @@
 import React from 'react';
 import {Route,IndexRoute,Redirect} from 'react-router';
 
-import Layout from './../components/Layout';
-import About from './../components/About';
-import Application from './../main/Application';
 import Home from './../components/Home';
+import About from './../components/About';
+import Album from './../components/Album';
+import Layout from './../components/Layout';
+
+
 
 let routes = (
     <Route>
@@ -15,6 +17,7 @@ let routes = (
         <Route name="home" path="/home" component={Layout}>
             <IndexRoute component={Home}/>
             <Route name="about" path="/about" component={About}/>
+            <Route name="album" path="/album" component={Album}/>
         </Route>
     </Route>
 );

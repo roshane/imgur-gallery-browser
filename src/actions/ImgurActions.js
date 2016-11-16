@@ -8,21 +8,36 @@ class ImgurActions {
 
     loadGallery(requestURL) {
         ApiSource.getGallery(requestURL)
-            .then(this.loadGallerySuccess)
-            .catch(this.loadGalleryFailed);
+            .then(this.pageDataSuccess)
+            .catch(this.pageDataFailed);
         return true;
     }
 
-    loadGallerySuccess(response) {
+    pageDataSuccess(response) {
         return response;
     }
 
-    loadGalleryFailed(error) {
+    pageDataFailed(error) {
         return error;
     }
 
-    resetGallery() {
+    loadAlbum(requestURL) {
+        ApiSource.getAlbum(requestURL)
+            .then(this.pageDataSuccess)
+            .catch(this.pageDataFailed);
         return true;
+    }
+
+    updateSearchCriteria(request) {
+        return request;
+    }
+
+    resetPageData() {
+        return true;
+    }
+
+    setSelectedImage(imgData) {
+        return imgData;
     }
 }
 

@@ -45,6 +45,10 @@ class NetworkState {
     isSuccess() {
         return this.state == KeyBox.networkState.success;
     }
+
+    isInitial() {
+        return this.state == KeyBox.networkState.initial;
+    }
 }
 
 export default NetworkState;

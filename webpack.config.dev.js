@@ -38,6 +38,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                exclude: [path.join(__dirname, 'vendor')],
                 loaders: ["style-loader", "css-loader"]
             },
             {

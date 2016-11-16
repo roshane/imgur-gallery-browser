@@ -1,18 +1,20 @@
 /**
  * Created by roshane on 11/14/16.
  */
-import jquery from 'jquery';
+import $ from 'jquery';
 import React,{Component} from 'react';
 import Menu from './Menu';
 import AltContainer from 'alt-container';
 
 import ImgurStore from './../stores/ImgurStore';
 import ImgurActions from './../actions/ImgurActions';
+import SearchModal from './modal/SearchForm';
+import ImageViewModal from './modal/ImageViewModal';
 
 require('bootstrap/dist/js/bootstrap.js');
 
 require('bootstrap/dist/css/bootstrap.css');
-require('bootstrap/dist/css/bootstrap-theme.css');
+require('font-awesome/css/font-awesome.css');
 require('./../resources/css/style.css');
 
 class Layout extends Component {
@@ -22,15 +24,18 @@ class Layout extends Component {
     }
 
     render() {
-        return <div className="container">
-            <Menu/>
-            <hr/>
-            <AltContainer
+        return <div className="well no-padding no-margin no-border">
+            <Menu {...this.props}/>
+            <div className="container">
+                <AltContainer
                 stores={{
                     imgurStore:ImgurStore
                 }}>
-                {this.props.children}
-            </AltContainer>
+                    {this.props.children}
+                    <SearchModal {...this.props} />
+                    <ImageViewModal {...this.props}/>
+                </AltContainer>
+            </div>
         </div>
     }
 }

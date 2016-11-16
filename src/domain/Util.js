@@ -3,8 +3,12 @@
  */
 class Util {
 
-    static buildURL(criteria) {
+    static buildGalleryURL(criteria) {
         return `/${criteria.section}/${criteria.sort}/${criteria.window}?showViral=${criteria.showViral}`;
+    }
+
+    static buildAlbumUrl(albumId){
+        return `/album/${albumId}`;
     }
 }
 

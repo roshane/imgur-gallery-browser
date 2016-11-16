@@ -14,6 +14,9 @@ class ApiSource {
         return EndPoint.getWithAuth(requestURL, this.authToken);
     }
 
+    getAlbum(requestURL) {
+        return EndPoint.getWithAuth(requestURL, this.authToken);
+    }
 }
 
 export default new ApiSource();

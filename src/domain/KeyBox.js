@@ -12,26 +12,37 @@ var KeyBox = {
     },
     pages: {
         home: "home",
-        about: "about"
+        about: "about",
+        album: "album"
     },
     gallery: {
         section: {
-            hot: "hot",
-            top: "top",
-            user: "user"
+            values:{
+                hot: "hot",
+                top: "top",
+                user: "user"
+            },
+            section: "section"
         },
         sort: {
-            viral: "viral",
-            top: "top",
-            time: "time"
+            values:{
+                viral: "viral",
+                top: "top",
+                time: "time"
+            },
+            sort: "sort"
         },
         window: {
-            day: "day",
-            week: "week",
-            month: "month",
-            year: "year",
-            all: "all"
-        }
+            values:{
+                day: "day",
+                week: "week",
+                month: "month",
+                year: "year",
+                all: "all"
+            },
+            window: "window"
+        },
+        showViral: "showViral"
     }
 };
 

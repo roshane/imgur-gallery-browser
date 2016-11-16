@@ -13,39 +13,50 @@ class ImgurStore {
         this.page = 1;
         this.pageData = null;
         this.showViral = true;
-        this.sort = KeyBox.gallery.sort.top;
+        this.selectedImage = null;
+        this.sort = KeyBox.gallery.sort.values.top;
         this.networkState = NetworkState.init();
-        this.window = KeyBox.gallery.window.day;
-        this.section = KeyBox.gallery.section.hot;
+        this.window = KeyBox.gallery.window.values.day;
+        this.section = KeyBox.gallery.section.values.hot;
 
         this.bindListeners({
+            loadAlbum: ImgurActions.LOAD_ALBUM,
             loadGallery: ImgurActions.LOAD_GALLERY,
-            resetGallery: ImgurActions.RESET_GALLERY,
-            loadGalleryFailed: ImgurActions.LOAD_GALLERY_FAILED,
-            loadGallerySuccess: ImgurActions.LOAD_GALLERY_SUCCESS
+            resetPageData: ImgurActions.RESET_PAGE_DATA,
+            pageDataFailed: ImgurActions.PAGE_DATA_FAILED,
+            pageDataSuccess: ImgurActions.PAGE_DATA_SUCCESS,
+            setSelectedImage: ImgurActions.SET_SELECTED_IMAGE,
+            updateSearchCriteria: ImgurActions.UPDATE_SEARCH_CRITERIA
         })
+    }
+
+    setSelectedImage(image) {
+        this.selectedImage = image;
     }
 
     updateSearchCriteria(request) {
         let {key,value}=request;
         this[key] = value;
-        console.info("updated search criteria ", this.getState());
     }
 
     loadGallery() {
         this.networkState.load();
     }
 
-    loadGalleryFailed(error) {
-        this.networkState.fail(error);
+    loadAlbum() {
+        this.networkState.load();
     }
 
-    loadGallerySuccess(response) {
+    pageDataFailed(error) {
+        this.networkState.failed(error);
+    }
+
+    pageDataSuccess(response) {
         this.pageData = response;
         this.networkState.success();
     }
 
-    resetGallery() {
+    resetPageData() {
         this.pageData = null;
         this.networkState.reset();
         this.section = KeyBox.gallery.section.hot;

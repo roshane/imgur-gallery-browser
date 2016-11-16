@@ -4,11 +4,25 @@
 import React,{Component} from 'react';
 import SearchActions from './../actions/ImgurActions';
 import {Link} from 'react-router';
-
+import KeyBox from './../domain/KeyBox';
 
 class Menu extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            activePage: KeyBox.pages.home
+        };
+    }
+
+    changeActiveMenu(path) {
+        let currentState = this.state;
+        currentState.activePage = path;
+        this.setState(currentState);
+    }
+
     render() {
+
         return <nav className="navbar navbar-inverse">
             <div className="container-fluid">
                 <div className="navbar-header">
@@ -23,15 +37,20 @@ class Menu extends Component {
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav">
-                        <li className="active">
-                            <Link to="/home">
+                        <li className={this.state.activePage==KeyBox.pages.home?'active':null}>
+                            <Link to="/home" onClick={this.changeActiveMenu.bind(this,KeyBox.pages.home)}>
                                 Home
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/about">
+                        <li className={this.state.activePage==KeyBox.pages.about?'active':null}>
+                            <Link to="/about" onClick={this.changeActiveMenu.bind(this,KeyBox.pages.about)}>
                                 About
                             </Link>
+                        </li>
+                    </ul>
+                    <ul className="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#myModal" data-toggle="modal">Search</a>
                         </li>
                     </ul>
                 </div>

@@ -1,10 +1,10 @@
-## Imgur gallery browser application ReactJS
+## Sample ReactJs appllication to explore [imgur](http://imgur.com/) galleries
 
 #### Overview
 
-this is a simple show case application buit with react to browser galleries and albums via [imgur-api](http://api.imgur.com/)
+This is a simple show case application built with react to browser galleries and albums via [imgur-api](http://api.imgur.com/)
 
-##### functional overview
+##### Functional overview
 
 * users can browser galleries
 * filter gallery result using (showViral, section, winodw, sort) criterias.

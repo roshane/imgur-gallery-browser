@@ -21,7 +21,7 @@ app.get('*', function (req, res) {
 });
 
 
-app.listen('4000', function () {
+app.listen('3000', function () {
     console.log('application started on http://localhost:3000');
     console.log('Ctrl + c to stop');
 });

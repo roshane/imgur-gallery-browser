@@ -27,7 +27,7 @@ This is a simple show case application built with react to browser galleries and
 
 * make sure you have configure the docker environment  ```$> docker-machine env default(machine-name)```
 
-* run the script file provided ```$> ./install_docker.sh```
+* run the script file provided ```$> ./run_docker_image.sh```
   * this will create the docker image and start the node express server on port 3000
 
 #### Tech stack

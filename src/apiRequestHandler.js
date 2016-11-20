@@ -4,6 +4,7 @@
 import endPoint from 'superagent';
 
 let API_BASE = "https://api.imgur.com/3/gallery";
+//let API_BASE = "/api";
 let JSON = "application/json";
 
 let request = {
